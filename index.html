@@ -55,13 +55,15 @@
             color: var(--text-main);
             cursor: pointer;
             transition: opacity 0.3s ease;
+            z-index: 102;
         }
 
         .logo:hover { opacity: 0.8; }
 
         .nav-links {
             display: flex;
-            gap: 1rem;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
         }
 
         .nav-btn {
@@ -73,7 +75,7 @@
             cursor: pointer;
             transition: all 0.3s ease; 
             font-family: 'Inter', sans-serif;
-            padding: 0.6rem 1.2rem; 
+            padding: 0.6rem 1rem; 
             border-radius: 8px; 
             border: 1px solid transparent;
         }
@@ -89,6 +91,18 @@
         .nav-btn.active { 
             color: var(--accent); 
             background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        /* HAMBURGER MENU ICON */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: var(--text-main);
+            font-size: 1.8rem;
+            z-index: 102;
+            transition: transform 0.3s ease;
         }
 
         /* PAGE CONTAINERS */
@@ -107,9 +121,8 @@
 
         /* --- HOME PAGE STYLES --- */
         .home-wrapper {
-            /* NEW ABSTRACT DATA NODE THEMED BACKGROUND (NO PEOPLE) */
             background: linear-gradient(
-                rgba(10, 15, 25, 0.85), /* Strong dark overlay for readability */
+                rgba(10, 15, 25, 0.85),
                 rgba(15, 23, 42, 0.95)
             ), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat fixed;
             
@@ -142,7 +155,7 @@
             font-weight: 400;
         }
 
-        /* SUBMISSION DETAILS - 2 ITEMS PER ROW */
+        /* SUBMISSION DETAILS */
         .submission-bar {
             max-width: 900px;
             margin: 4rem auto 0 auto;
@@ -150,7 +163,7 @@
             grid-template-columns: repeat(2, 1fr); 
             gap: 2rem;
             text-align: left;
-            background: rgba(30, 41, 59, 0.85); /* Darker box */
+            background: rgba(30, 41, 59, 0.85);
             backdrop-filter: blur(10px);
             padding: 2rem;
             border-radius: 12px;
@@ -218,7 +231,7 @@
             gap: 2.5rem;
         }
 
-        /* ACTIVITY CARD HOVER EFFECT */
+        /* ACTIVITY CARD */
         .activity-card {
             background-color: var(--card-bg);
             border-radius: 12px;
@@ -283,29 +296,36 @@
             display: block;
         }
 
-        /* Subtle opacity change instead of scale to prevent background leaks */
         .activity-card:hover .carousel-track img {
             opacity: 0.9; 
         }
 
+        /* --- PROFESSIONAL ARROW HOVER EFFECT --- */
         .card-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(42, 48, 56, 0.8);
+            background: rgba(42, 48, 56, 0.7);
             color: white;
-            border: none;
-            padding: 10px 15px;
+            border: 1px solid transparent;
+            padding: 12px 16px;
             font-size: 18px;
             cursor: pointer;
             border-radius: 50%;
             z-index: 10;
-            transition: background 0.3s;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
 
-        .card-arrow:hover { background: var(--accent); }
-        .card-prev { left: 10px; }
-        .card-next { right: 10px; }
+        .card-arrow:hover { 
+            background: var(--accent);
+            border-color: #60a5fa; /* Lighter blue border */
+            transform: translateY(-50%) scale(1.15); /* Pops out */
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6); /* Glowing blue shadow */
+        }
+
+        .card-prev { left: 15px; }
+        .card-next { right: 15px; }
 
         /* CAROUSEL DOTS */
         .carousel-dots {
@@ -314,6 +334,7 @@
             gap: 8px;
             padding: 15px 0 5px 0;
             background-color: var(--card-bg);
+            flex-wrap: wrap;
         }
 
         .dot {
@@ -325,10 +346,11 @@
             transition: background-color 0.3s, transform 0.3s;
         }
 
-        .dot:hover { transform: scale(1.2); }
+        .dot:hover { transform: scale(1.2); background-color: #64748b; }
         .dot.active { 
             background-color: var(--accent); 
             transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
         }
 
         /* DOWNLOAD BUTTON */
@@ -353,6 +375,7 @@
             background-color: var(--accent);
             color: white;
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
         }
 
         /* --- MODAL / LIGHTBOX STYLES --- */
@@ -400,11 +423,14 @@
             font-size: 40px;
             font-weight: bold;
             cursor: pointer;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
             z-index: 1010;
         }
 
-        .close-modal:hover { color: var(--accent); }
+        .close-modal:hover { 
+            color: var(--accent); 
+            transform: scale(1.1);
+        }
 
         .modal-arrow {
             position: absolute;
@@ -412,16 +438,23 @@
             transform: translateY(-50%);
             background: rgba(42, 48, 56, 0.7);
             color: white;
-            border: none;
-            padding: 15px 20px;
+            border: 1px solid transparent;
+            padding: 15px 22px;
             font-size: 24px;
             cursor: pointer;
             border-radius: 50%;
-            transition: background 0.3s;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             z-index: 1010;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
 
-        .modal-arrow:hover { background: var(--accent); }
+        .modal-arrow:hover { 
+            background: var(--accent);
+            border-color: #60a5fa;
+            transform: translateY(-50%) scale(1.15);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
+        }
+
         .prev-arrow { left: 5%; }
         .next-arrow { right: 5%; }
 
@@ -446,6 +479,7 @@
         #topBtn:hover { 
             background-color: var(--accent-hover); 
             transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
         }
 
         /* FOOTER */
@@ -457,17 +491,50 @@
             border-top: 1px solid #334155;
         }
 
-        /* RESPONSIVE DESIGN */
+        /* =========================================
+           RESPONSIVE DESIGN & HAMBURGER MENU 
+           ========================================= */
         @media (max-width: 900px) {
-            .navbar {
+            .hamburger {
+                display: block; 
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #1a1f24; /* Fully solid background */
                 flex-direction: column;
-                gap: 1rem;
-                padding: 1rem 5%;
+                align-items: flex-start; 
+                padding: 0 2rem; 
+                max-height: 0;
+                overflow: hidden;
+                border-bottom: 1px solid #334155;
+                transition: max-height 0.4s ease, padding 0.4s ease;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.show {
+                max-height: 400px;
+                padding: 1rem 2rem 2rem 2rem; 
+            }
+
+            .nav-btn {
+                width: 100%; 
+                text-align: left;
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                border-radius: 0;
             }
             
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
+            .nav-btn:hover {
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                transform: none;
+                box-shadow: none;
+                color: var(--accent);
             }
 
             .hero-text h1 { font-size: 2.5rem; }
@@ -475,16 +542,55 @@
             .submission-bar {
                 grid-template-columns: 1fr;
                 text-align: center;
+                padding: 1.5rem;
             }
             
             .carousel-track img {
-                max-height: 300px;
+                max-height: 400px;
             }
+
+            .lab-container {
+                padding: 3rem 4% 4rem 4%;
+            }
+            
+            .card-arrow { padding: 8px 12px; font-size: 16px; }
+            .modal-arrow { padding: 10px 15px; font-size: 20px; }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
             .hero-text h1 { font-size: 2rem; }
-            .activity-header { flex-direction: column; gap: 0.5rem; }
+            .hero-text p { font-size: 1rem; }
+            
+            .activity-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .activity-header {
+                flex-direction: column; 
+                gap: 0.5rem;
+            }
+
+            .activity-title { font-size: 1.3rem; }
+
+            .carousel-track img {
+                max-height: 250px;
+            }
+
+            .prev-arrow { left: 2%; }
+            .next-arrow { right: 2%; }
+
+            .close-modal {
+                top: 10px;
+                right: 20px;
+                font-size: 30px;
+            }
+
+            #topBtn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 16px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -494,7 +600,10 @@
     <nav class="navbar">
         <a onclick="showPage('home')" class="logo">DATASG1</a>
         
-        <div class="nav-links">
+        <!-- Hamburger Button (Only visible on mobile) -->
+        <button class="hamburger" onclick="toggleMenu()" id="hamburgerBtn">☰</button>
+
+        <div class="nav-links" id="navLinks">
             <button onclick="showPage('home')" class="nav-btn active" id="btn-home">Home</button>
             <button onclick="showPage('prelims')" class="nav-btn" id="btn-prelims">Prelims</button>
             <button onclick="showPage('midterms')" class="nav-btn" id="btn-midterms">Midterms</button>
@@ -839,7 +948,13 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // 1. Page Switching
+        // 1. Hamburger Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        }
+
+        // 2. Page Switching
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page-section');
             pages.forEach(page => page.classList.remove('active-page'));
@@ -850,10 +965,14 @@
             if(document.getElementById('btn-' + pageId)) {
                 document.getElementById('btn-' + pageId).classList.add('active');
             }
+            
+            // Close the hamburger menu after a selection is made
+            document.getElementById('navLinks').classList.remove('show');
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 2. Dynamic In-Card Carousel Logic
+        // 3. Dynamic In-Card Carousel Logic
         let carouselIndices = {};
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -915,7 +1034,7 @@
             return carouselIndices[trackId] || 0;
         }
 
-        // 3. Modal / Lightbox Logic
+        // 4. Modal / Lightbox Logic
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modalImg");
         let currentTrackImages = [];
@@ -962,7 +1081,7 @@
             }
         }
 
-        // 4. Back to Top Button Logic
+        // 5. Back to Top Button Logic
         window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 document.getElementById("topBtn").style.display = "block";
