@@ -105,7 +105,6 @@
             transition: transform 0.3s ease;
         }
 
-        /* PAGE CONTAINERS */
         .page-section {
             display: none; 
             animation: fadeIn 0.4s ease-in-out;
@@ -119,7 +118,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- HOME PAGE STYLES --- */
         .home-wrapper {
             background: linear-gradient(
                 rgba(10, 15, 25, 0.85),
@@ -155,7 +153,6 @@
             font-weight: 400;
         }
 
-        /* SUBMISSION DETAILS */
         .submission-bar {
             max-width: 900px;
             margin: 4rem auto 0 auto;
@@ -187,7 +184,6 @@
             color: var(--accent); 
         }
 
-        /* OVERALL REFLECTION */
         .overall-reflection {
             max-width: 900px;
             margin: 4rem auto 0 auto;
@@ -209,7 +205,6 @@
             font-size: 1rem;
         }
 
-        /* --- LAB PAGES STYLES --- */
         .lab-container {
             padding: 4rem 5% 5rem 5%;
             max-width: 1200px;
@@ -231,7 +226,6 @@
             gap: 2.5rem;
         }
 
-        /* ACTIVITY CARD */
         .activity-card {
             background-color: var(--card-bg);
             border-radius: 12px;
@@ -269,7 +263,6 @@
             white-space: nowrap;
         }
 
-        /* --- IN-CARD CAROUSEL STYLES --- */
         .in-card-carousel {
             position: relative;
             width: 100%;
@@ -300,7 +293,6 @@
             opacity: 0.9; 
         }
 
-        /* --- PROFESSIONAL ARROW HOVER EFFECT --- */
         .card-arrow {
             position: absolute;
             top: 50%;
@@ -327,7 +319,6 @@
         .card-prev { left: 15px; }
         .card-next { right: 15px; }
 
-        /* CAROUSEL DOTS */
         .carousel-dots {
             display: flex;
             justify-content: center;
@@ -353,7 +344,6 @@
             box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
         }
 
-        /* DOWNLOAD BUTTON */
         .download-btn {
             display: inline-flex;
             align-items: center;
@@ -378,7 +368,6 @@
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
         }
 
-        /* --- MODAL / LIGHTBOX STYLES --- */
         .modal {
             display: none; 
             position: fixed;
@@ -458,7 +447,6 @@
         .prev-arrow { left: 5%; }
         .next-arrow { right: 5%; }
 
-        /* BACK TO TOP BUTTON */
         #topBtn {
             display: none;
             position: fixed;
@@ -482,7 +470,6 @@
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
         }
 
-        /* FOOTER */
         footer {
             text-align: center;
             padding: 2rem;
@@ -636,7 +623,6 @@
                 </div>
             </div>
 
-            <!-- OVERALL REFLECTION -->
             <div class="overall-reflection">
                 <h3>Overall Course Reflection</h3>
                 <p>Throughout this semester in Data Structures and Algorithms, I have grown a lot in my ability to solve problems. At the start, I only knew basic programming ideas. Now I can build and use more complex algorithms. This change was hard, but it felt great to achieve.
@@ -931,7 +917,6 @@
     </footer>
 
     <script>
-        // 1. Hamburger Menu Toggle
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('show');
@@ -948,7 +933,6 @@
                 document.getElementById('btn-' + pageId).classList.add('active');
             }
             
-            // Close the hamburger menu after a selection is made
             document.getElementById('navLinks').classList.remove('show');
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
