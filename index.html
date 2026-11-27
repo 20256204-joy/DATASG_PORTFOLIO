@@ -491,9 +491,6 @@
             border-top: 1px solid #334155;
         }
 
-        /* =========================================
-           RESPONSIVE DESIGN & HAMBURGER MENU 
-           ========================================= */
         @media (max-width: 900px) {
             .hamburger {
                 display: block; 
@@ -596,7 +593,7 @@
 </head>
 <body>
 
-    <!-- NAVIGATION -->
+
     <nav class="navbar">
         <a onclick="showPage('home')" class="logo">DATASG1</a>
         
@@ -611,7 +608,6 @@
         </div>
     </nav>
 
-    <!-- ================= HOME PAGE ================= -->
     <div id="home" class="page-section active-page">
         <div class="home-wrapper">
             <section class="hero">
@@ -650,13 +646,11 @@
         </div>
     </div>
 
-    <!-- ================= PRELIMS PAGE ================= -->
     <div id="prelims" class="page-section">
         <div class="lab-container">
             <h1 class="section-title">Prelims</h1>
             <div class="activity-grid">
                 
-                <!-- PRELIMS ACTIVITY 1 -->
                 <div class="activity-card">
                     <div class="activity-header">
                         <div class="activity-title">Activity No. 1</div>
@@ -684,13 +678,11 @@
         </div>
     </div>
 
-    <!-- ================= MIDTERMS PAGE ================= -->
     <div id="midterms" class="page-section">
         <div class="lab-container">
             <h1 class="section-title">Midterms</h1>
             <div class="activity-grid">
                 
-                <!-- MIDTERMS ACTIVITY 2 -->
                 <div class="activity-card">
                     <div class="activity-header">
                         <div class="activity-title">Activity No. 2</div>
@@ -717,7 +709,6 @@
                     </a>
                 </div>
 
-                <!-- MIDTERMS ACTIVITY 3 -->
                 <div class="activity-card">
                     <div class="activity-header">
                         <div class="activity-title">Activity No. 3</div>
@@ -753,7 +744,6 @@
                     </a>
                 </div>
 
-                <!-- MIDTERMS ACTIVITY 4 -->
                 <div class="activity-card">
                     <div class="activity-header">
                         <div class="activity-title">Activity No. 4</div>
@@ -785,7 +775,6 @@
                     </a>
                 </div>
 
-                <!-- MIDTERMS ACTIVITY 5 -->
                 <div class="activity-card">
                     <div class="activity-header">
                         <div class="activity-title">Activity No. 5</div>
@@ -821,7 +810,6 @@
         </div>
     </div>
 
-    <!-- ================= FINALS PAGE ================= -->
     <div id="finals" class="page-section">
         <div class="lab-container">
             <h1 class="section-title">Finals</h1>
@@ -859,7 +847,6 @@
                     </a>
                 </div>
 
-                <!-- FINALS EXERCISE 2 -->
                 <div class="activity-card">
                     <div class="activity-header">
                         <div class="activity-title">Exercise No. 2</div>
@@ -892,7 +879,6 @@
                     </a>
                 </div>
 
-                <!-- FINALS ACTIVITY 2 -->
                 <div class="activity-card">
                     <div class="activity-header">
                         <div class="activity-title">Activity No. 2</div>
@@ -929,7 +915,6 @@
         </div>
     </div>
 
-    <!-- MODAL / LIGHTBOX HTML -->
     <div id="imageModal" class="modal">
         <div class="modal-wrapper">
             <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -939,14 +924,12 @@
         </div>
     </div>
 
-    <!-- BACK TO TOP BUTTON -->
     <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="topBtn" title="Go to top">↑</button>
 
     <footer>
         <p>© 2026 MAY JOY D. AGUNOD. DATASG Portfolio.</p>
     </footer>
 
-    <!-- JAVASCRIPT -->
     <script>
         // 1. Hamburger Menu Toggle
         function toggleMenu() {
@@ -954,7 +937,6 @@
             navLinks.classList.toggle('show');
         }
 
-        // 2. Page Switching
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page-section');
             pages.forEach(page => page.classList.remove('active-page'));
@@ -972,7 +954,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 3. Dynamic In-Card Carousel Logic
         let carouselIndices = {};
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -1034,7 +1015,6 @@
             return carouselIndices[trackId] || 0;
         }
 
-        // 4. Modal / Lightbox Logic
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modalImg");
         let currentTrackImages = [];
@@ -1081,7 +1061,6 @@
             }
         }
 
-        // 5. Back to Top Button Logic
         window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 document.getElementById("topBtn").style.display = "block";
